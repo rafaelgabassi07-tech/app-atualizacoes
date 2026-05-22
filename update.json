@@ -1,11 +1,11 @@
 {
-  "latestVersion": "1.0.0",
-  "releases": [
-    {
-      "version": "1.0.0",
-      "date": "2026-05-22",
-      "changelog": ["Primeira versão estável", "Melhorias de UI"],
-      "downloadUrl": "https://link-do-seu-apk-aqui"
-    }
+  "latestVersionCode": 4,
+  "versionName": "1.0.2",
+  "downloadUrl": "https://github.com/seu-usuario/seu-repo/releases/download/v1.0.2/app-release.apk",
+  "releaseDate": "2026-05-22T20:00:00Z",
+  "changelog": [
+    "Corrigido bug de fechamento inesperado.",
+    "Adicionada funcionalidade de modo noturno.",
+    "Melhorias de performance geral."
   ]
 }
