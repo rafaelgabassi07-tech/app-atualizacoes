@@ -1,6 +1,48 @@
 {
   "versionCode": 4,
   "versionName": "1.0.2",
-  "downloadUrl": "https://github.com/rafaelgabassi07-tech/app-atualizacoes/releases/download/V1.0.2/VALORAE-V1.0.2.apk",
-  "releaseNotes": "- Aprimoramentos visuais, melhorias no sistema de atualização, otimizações no desempenho e performance"
+  "title": "Grandes Novidades Chegaram!",
+  "releaseDate": "2026-05-22T12:00:00Z",
+  "fileSize": "23.5 MB",
+  "mandatory": false,
+  "minVersionSupported": "1.0.0",
+  "downloadUrl": "https://github.com/rafaelgabassi07-tech/app-atualizacoes/releases/download/V1.1.0/VALORAE-V1.1.0.apk",
+  "features": [
+    {
+      "type": "design",
+      "text": "Visual Lapidado: Polimentos na interface e ajustes finos de espaçamento nas páginas."
+    },
+    {
+      "type": "feature",
+      "text": "Notificações: Sistema de notificações integrado de forma nativa."
+    },
+    {
+      "type": "feature",
+      "text": "Ticker de Mercado: Acompanhamento de cotações em tempo real em todas as telas."
+    },
+    {
+      "type": "improvement",
+      "text": "Scraping & Dados: Nova lógica na renderização de gráficos e tratamento de informações extraídas."
+    },
+    {
+      "type": "improvement",
+      "text": "Gráficos Interativos: Nova experiência de navegação no recurso 'Arraste para ver o histórico'."
+    },
+    {
+      "type": "improvement",
+      "text": "Carteira: Melhorias na listagem da aba 'Meus ativos' e histórico de transações."
+    },
+    {
+      "type": "improvement",
+      "text": "Nova Interface: Página 'Registrar ativo' totalmente reformulada e intuitiva."
+    },
+    {
+      "type": "fix",
+      "text": "Performance: Correções de travamentos e melhorias gerais de estabilidade."
+    },
+    {
+      "type": "fix",
+      "text": "Sistema de Atualização: Otimizações internas na verificação de novas versões."
+    }
+  ]
 }
