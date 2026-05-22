@@ -1,6 +1,6 @@
 {
-  "versionCode": 3,
-  "versionName": "1.0.1",
+  "versionCode": 4,
+  "versionName": "1.0.2",
   "downloadUrl": "https://github.com/rafaelgabassi07-tech/app-atualizacoes/releases/download/V1.0.1/VALORAE-2.apk",
-  "releaseNotes": "Melhorias no sistema de verificação automática de atualizações e estabilidade geral."
+  "releaseNotes": "- Aprimoramentos visuais, melhorias no sistema de atualização, otimizações no desempenho e performance"
 }
