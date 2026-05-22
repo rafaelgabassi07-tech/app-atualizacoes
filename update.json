@@ -1,15 +1,16 @@
 {
-  "latestVersionCode": 6,
-  "versionName": "1.0.4",
-  "downloadUrl": "https://github.com/SEU_USUARIO/SEU_REPOSITORIO/releases/download/v1.0.4/app-release.apk",
-  "releaseDate": "2026-05-23T10:00:00Z",
+  "latestVersionCode": 7,
+  "versionName": "1.0.5",
+  "downloadUrl": "https://github.com/SEU_USUARIO/SEU_REPOSITORIO/releases/download/v1.0.5/app-release.apk",
+  "releaseDate": "2026-05-22",
   "isMandatory": false,
   "minRequiredVersionCode": 1,
-  "fileSize": "12.5 MB",
+  "fileSize": "15.0 MB",
   "changelog": [
-    "Nova funcionalidade de dashboard de dados.",
-    "Correção de erro crítico na tela de configurações.",
-    "Otimização no carregamento de imagens."
-  ],
-  "releaseNotes": "Esta é uma atualização recomendada para todos os usuários para melhorar a estabilidade e desempenho do sistema."
+    "Adicionada nova tela...",
+    "Corrigido bug...",
+    "Melhoria na performance...",
+    "Ajustes visuais...",
+    "Melhoria no teclado"
+  ]
 }
