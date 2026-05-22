@@ -1,6 +1,11 @@
 {
-  "versionName": "0.0.0",
-  "releaseDate": "YYYY-MM-DD",
-  "downloadUrl": "",
-  "changelog": []
+  "latestVersion": "1.0.0",
+  "releases": [
+    {
+      "version": "1.0.0",
+      "date": "2026-05-22",
+      "changelog": ["Primeira versão estável", "Melhorias de UI"],
+      "downloadUrl": "https://link-do-seu-apk-aqui"
+    }
+  ]
 }
