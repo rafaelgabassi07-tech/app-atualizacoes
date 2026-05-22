@@ -8,7 +8,7 @@ jobs:
   update-json:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Necessário para fazer o git commit no repositório
+      contents: write # Necessário para permitir que a Action faça o git commit de volta no repositório
     steps:
       - name: Checkout do Repositório
         uses: actions/checkout@v4
@@ -17,28 +17,30 @@ jobs:
         shell: bash
         env:
           RELEASE_TAG: ${{ github.event.release.tag_name }}
-          RELEASE_NAME: ${{ github.event.release.name }}
+          # Pega a URL de download do primeiro arquivo (asset) anexado à release
           DOWNLOAD_URL: ${{ github.event.release.assets[0].browser_download_url }}
-          # Assumindo que você coloca o JSON dos recursos no corpo da release
-          # Exemplo: Você cola um bloco de código JSON nas notas da release
         run: |
-          # Extrai informações básicas do JSON atual ou cria uma estrutura nova
-          # A forma mais prática é você manter um template e substituir somente o necessário
-          
-          # Exemplo simples usando jq para atualizar campos
-          echo "Atualizando para versão $RELEASE_TAG..."
-          
-          # Você pode usar um script Python ou bash para ler o corpo da release
-          # e atualizar o update.json.
-          
-          # Para algo rápido, crie um arquivo template, ou apenas manipule o arquivo atual:
-          # (Exemplo simplificado)
-          sed -i 's/"versionName": ".*"/"versionName": "'${RELEASE_TAG#v}'"/' update.json
-          sed -i 's|"downloadUrl": ".*"|"downloadUrl": "'$DOWNLOAD_URL'"|' update.json
-          
-          # Você pode precisar de mais lógica para a lista "features" se quiser que ela venha da release.
+          # Remove o prefixo 'v' da tag, se existir (ex: v1.0.0 -> 1.0.0)
+          VERSION=${RELEASE_TAG#v}
 
-      - name: Commit e Push
+          echo "Atualizando para versão $VERSION..."
+          echo "Download URL: $DOWNLOAD_URL"
+
+          # O arquivo 'update.json' DEVE existir na raiz do seu repositório.
+          # O 'jq' atualizará os campos de forma segura e estruturada.
+          if [ -f "update.json" ]; then
+            jq --arg vn "$VERSION" \
+               --arg du "$DOWNLOAD_URL" \
+               '.versionName = $vn | .downloadUrl = $du' \
+               update.json > update.json.tmp && mv update.json.tmp update.json
+            
+            echo "JSON atualizado com sucesso."
+          else
+            echo "Erro: Arquivo 'update.json' não encontrado na raiz!"
+            exit 1
+          fi
+
+      - name: Commit e Push das alterações
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
