@@ -8,8 +8,7 @@ jobs:
   update-json:
     runs-on: ubuntu-latest
     permissions:
-      contents: write 
-
+      contents: write
     steps:
       - name: Checkout do Repositório
         uses: actions/checkout@v4
@@ -17,35 +16,38 @@ jobs:
       - name: Instalar jq
         run: sudo apt-get install -y jq
 
-      - name: Gerar novo JSON
+      - name: Gerar e atualizar JSON
         shell: bash
         env:
-          # Remove o 'v' do início da tag (ex: v1.0.0 -> 1.0.0)
-          RELEASE_TAG: ${{ github.event.release.tag_name }}
-          DOWNLOAD_URL: ${{ github.event.release.assets[0].browser_download_url }}
-          # O corpo da release contém o changelog
-          RELEASE_BODY: ${{ github.event.release.body }}
+          VERSION: ${{ github.event.release.tag_name }}
+          # Remove o prefixo 'v' se você usa tags como 'v1.0.0'
+          VERSION_CLEAN: ${{ github.event.release.tag_name }}
+          DATE: ${{ github.event.release.published_at }}
+          BODY: ${{ github.event.release.body }}
+          URL: ${{ github.event.release.assets[0].browser_download_url }}
         run: |
-          # Limpa a tag
-          VERSION=${RELEASE_TAG#v}
-          # Pega a data de hoje
-          DATE=$(date -u +"%Y-%m-%d")
+          # Transforma o body da release em um array JSON simples
+          # Assume que itens no changelog estão separados por quebra de linha
+          CHANGELOG=$(echo "$BODY" | jq -R -s 'split("\n") | map(select(length > 0))')
           
-          # Usa o jq para criar o JSON estruturado
-          # O RELEASE_BODY vindo do GitHub pode ter quebras de linha.
-          # O comando split("\n") transforma o texto em um array de linhas.
-          echo "$RELEASE_BODY" | jq -R -s -n \
-            --arg vn "$VERSION" \
-            --arg rd "$DATE" \
-            --arg du "$DOWNLOAD_URL" \
-            '{versionName: $vn, releaseDate: $rd, downloadUrl: $du, changelog: (input | split("\n") | map(select(length > 0)))}' > update.json
-            
-          # (O comando 'input' lê o conteúdo do echo do RELEASE_BODY)
+          # Cria o novo objeto de release
+          NEW_RELEASE=$(jq -n \
+            --arg ver "${VERSION_CLEAN#v}" \
+            --arg date "$DATE" \
+            --arg url "$URL" \
+            --argjson changes "$CHANGELOG" \
+            '{version: $ver, date: ($date | split("T")[0]), changelog: $changes, downloadUrl: $url}')
+          
+          # Insere o novo release no topo da lista "releases" e atualiza o "latestVersion"
+          cat update.json | \
+          jq --argjson new "$NEW_RELEASE" \
+            '.latestVersion = $new.version | .releases = ([$new] + .releases)' \
+            > update.json.tmp && mv update.json.tmp update.json
 
       - name: Commit e Push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add update.json
-          git commit -m "Automated update to ${RELEASE_TAG}"
+          git commit -m "Automated update: ${{ github.event.release.tag_name }}"
           git push
