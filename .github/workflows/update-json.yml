@@ -1,0 +1,47 @@
+name: Update JSON Automático
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  update-json:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Necessário para fazer o git commit no repositório
+    steps:
+      - name: Checkout do Repositório
+        uses: actions/checkout@v4
+
+      - name: Gerar novo JSON
+        shell: bash
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+          RELEASE_NAME: ${{ github.event.release.name }}
+          DOWNLOAD_URL: ${{ github.event.release.assets[0].browser_download_url }}
+          # Assumindo que você coloca o JSON dos recursos no corpo da release
+          # Exemplo: Você cola um bloco de código JSON nas notas da release
+        run: |
+          # Extrai informações básicas do JSON atual ou cria uma estrutura nova
+          # A forma mais prática é você manter um template e substituir somente o necessário
+          
+          # Exemplo simples usando jq para atualizar campos
+          echo "Atualizando para versão $RELEASE_TAG..."
+          
+          # Você pode usar um script Python ou bash para ler o corpo da release
+          # e atualizar o update.json.
+          
+          # Para algo rápido, crie um arquivo template, ou apenas manipule o arquivo atual:
+          # (Exemplo simplificado)
+          sed -i 's/"versionName": ".*"/"versionName": "'${RELEASE_TAG#v}'"/' update.json
+          sed -i 's|"downloadUrl": ".*"|"downloadUrl": "'$DOWNLOAD_URL'"|' update.json
+          
+          # Você pode precisar de mais lógica para a lista "features" se quiser que ela venha da release.
+
+      - name: Commit e Push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add update.json
+          git commit -m "Automated update: ${RELEASE_TAG}"
+          git push
