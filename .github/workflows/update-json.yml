@@ -8,42 +8,44 @@ jobs:
   update-json:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Necessário para permitir que a Action faça o git commit de volta no repositório
+      contents: write 
+
     steps:
       - name: Checkout do Repositório
         uses: actions/checkout@v4
 
+      - name: Instalar jq
+        run: sudo apt-get install -y jq
+
       - name: Gerar novo JSON
         shell: bash
         env:
+          # Remove o 'v' do início da tag (ex: v1.0.0 -> 1.0.0)
           RELEASE_TAG: ${{ github.event.release.tag_name }}
-          # Pega a URL de download do primeiro arquivo (asset) anexado à release
           DOWNLOAD_URL: ${{ github.event.release.assets[0].browser_download_url }}
+          # O corpo da release contém o changelog
+          RELEASE_BODY: ${{ github.event.release.body }}
         run: |
-          # Remove o prefixo 'v' da tag, se existir (ex: v1.0.0 -> 1.0.0)
+          # Limpa a tag
           VERSION=${RELEASE_TAG#v}
-
-          echo "Atualizando para versão $VERSION..."
-          echo "Download URL: $DOWNLOAD_URL"
-
-          # O arquivo 'update.json' DEVE existir na raiz do seu repositório.
-          # O 'jq' atualizará os campos de forma segura e estruturada.
-          if [ -f "update.json" ]; then
-            jq --arg vn "$VERSION" \
-               --arg du "$DOWNLOAD_URL" \
-               '.versionName = $vn | .downloadUrl = $du' \
-               update.json > update.json.tmp && mv update.json.tmp update.json
+          # Pega a data de hoje
+          DATE=$(date -u +"%Y-%m-%d")
+          
+          # Usa o jq para criar o JSON estruturado
+          # O RELEASE_BODY vindo do GitHub pode ter quebras de linha.
+          # O comando split("\n") transforma o texto em um array de linhas.
+          echo "$RELEASE_BODY" | jq -R -s -n \
+            --arg vn "$VERSION" \
+            --arg rd "$DATE" \
+            --arg du "$DOWNLOAD_URL" \
+            '{versionName: $vn, releaseDate: $rd, downloadUrl: $du, changelog: (input | split("\n") | map(select(length > 0)))}' > update.json
             
-            echo "JSON atualizado com sucesso."
-          else
-            echo "Erro: Arquivo 'update.json' não encontrado na raiz!"
-            exit 1
-          fi
+          # (O comando 'input' lê o conteúdo do echo do RELEASE_BODY)
 
-      - name: Commit e Push das alterações
+      - name: Commit e Push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add update.json
-          git commit -m "Automated update: ${RELEASE_TAG}"
+          git commit -m "Automated update to ${RELEASE_TAG}"
           git push
