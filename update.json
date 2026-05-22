@@ -7,10 +7,13 @@
   "minRequiredVersionCode": 1,
   "fileSize": "15.0 MB",
   "changelog": [
-    "Adicionada nova tela...",
-    "Corrigido bug...",
-    "Melhoria na performance...",
-    "Ajustes visuais...",
-    "Melhoria no teclado"
+    "Aprimoramentos e polimentos no visual das páginas e justes nos espaçamentos",
+    "Melhorias no sistema de atualização ",
+    "Melhorias e correções de desempenho, e otimização ",
+    "Melhorias nas lógicas dos gráficos e buscas de informações por scraping ",
+    "Implementado sistema de notificação",
+    "Adicionado ticker de mercado em todas as páginas",
+    "Melhorias na lista do Meus ativos e histórico",
+    "O gráfico de variação de preço está com nova lógica no ARRASTE PARA VER O HISTÓRICO"",
   ]
 }
