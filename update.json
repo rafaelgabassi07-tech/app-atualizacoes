@@ -7,13 +7,13 @@
   "minRequiredVersionCode": 1,
   "fileSize": "23.5 MB",
   "changelog": [
-    "Aprimoramentos e polimentos no visual das páginas e justes nos espaçamentos",
-    "Melhorias no sistema de atualização ",
-    "Melhorias e correções de desempenho, e otimização ",
-    "Melhorias nas lógicas dos gráficos e buscas de informações por scraping ",
-    "Implementado sistema de notificação",
-    "Adicionado ticker de mercado em todas as páginas",
-    "Melhorias na lista do Meus ativos e histórico",
-    "O gráfico de variação de preço está com nova lógica no ARRASTE PARA VER O HISTÓRICO"
+    "Aprimoramento visual das páginas e ajustes de espaçamento",
+    "Melhorias no sistema de atualização",
+    "Otimizações gerais e correções de desempenho",
+    "Melhorias na lógica dos gráficos e na busca de dados por scraping",
+    "Implementação do sistema de notificações",
+    "Adição de ticker de mercado em todas as páginas",
+    "Melhorias na lista e no histórico de Meus Ativos",
+    "Nova lógica na função 'arrastar para ver o histórico' do gráfico de variação de preço"
   ]
 }
