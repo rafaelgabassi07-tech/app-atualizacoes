@@ -1,22 +1,26 @@
 {
-  "latestVersionCode": 49,
-  "versionName": "2.0.39",
-  "downloadUrl": "https://github.com/rafaelgabassi07-tech/app-atualizacoes/releases/download/v2.0.39/APK_VALORAE_v2.0.39.apk",
-  "releaseDate": "2026-06-09",
+  "latestVersionCode": 50,
+  "versionName": "2.0.40",
+  "downloadUrl": "https://github.com/rafaelgabassi07-tech/app-atualizacoes/releases/download/v2.0.40/APK_VALORAE_v2.0.40.apk",
+  "releaseDate": "2026-06-08",
   "isMandatory": false,
-  "minRequiredVersionCode": 48,
+  "minRequiredVersionCode": 49,
   "fileSize": "PREENCHER_APOS_BUILD",
+  "fileSizeBytes": 0,
+  "sha256": "",
   "changelog": [
-    "Corrigido endpoint oficial de atualização para o Vercel: https://app-atualizacoes.vercel.app/update.json.",
-    "Centralizada a URL do manifesto em BuildConfig.VALORAE_UPDATE_MANIFEST_URL.",
-    "Mantido o download seguro do APK no cache do app com FileProvider.",
-    "Mantido suporte aos contratos legacy e snake_case de update.json/version.json.",
-    "Preparado para publicar o APK final no GitHub Releases e preencher a URL real no Vercel."
+    "Instalador nativo com PackageInstaller.Session para reduzir a sensação de instalação externa.",
+    "Validação local do APK antes de abrir a instalação: pacote, versionCode, formato e SHA-256 quando informado.",
+    "Fallback seguro para FileProvider caso a sessão nativa não esteja disponível no dispositivo.",
+    "Manifesto de atualização preparado para Vercel com campos legacy e snake_case.",
+    "Insights passam a recalcular imediatamente a carteira local ao abrir a aba e ao detectar mudanças nos ativos."
   ],
-  "versionCode": 49,
-  "apkUrl": "https://github.com/rafaelgabassi07-tech/app-atualizacoes/releases/download/v2.0.39/APK_VALORAE_v2.0.39.apk",
-  "releaseNotes": "Ajuste do sistema de atualização para consultar o manifesto oficial no Vercel e baixar o APK apontado pelo GitHub Releases.",
-  "latest_version": "2.0.39",
-  "version_code": 49,
-  "apk_url": "https://github.com/rafaelgabassi07-tech/app-atualizacoes/releases/download/v2.0.39/APK_VALORAE_v2.0.39.apk"
+  "versionCode": 50,
+  "apkUrl": "https://github.com/rafaelgabassi07-tech/app-atualizacoes/releases/download/v2.0.40/APK_VALORAE_v2.0.40.apk",
+  "releaseNotes": "Evolução do atualizador para instalador nativo Android e correção profunda da atualização da página Insights com ativos na carteira.",
+  "latest_version": "2.0.40",
+  "version_code": 50,
+  "apk_url": "https://github.com/rafaelgabassi07-tech/app-atualizacoes/releases/download/v2.0.40/APK_VALORAE_v2.0.40.apk",
+  "sha_256": "",
+  "file_size_bytes": 0
 }
