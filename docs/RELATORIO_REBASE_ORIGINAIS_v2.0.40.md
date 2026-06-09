@@ -11,4 +11,4 @@ Objetivo:
 A URL de APK esperada é:
 https://github.com/rafaelgabassi07-tech/app-atualizacoes/releases/download/v2.0.40/APK_VALORAE_v2.0.40.apk
 
-Depois de compilar/publicar o APK real, preencha fileSizeBytes e sha256 com os valores reais.
+Para publicar manualmente, atualize apenas versionCode/versionName/downloadUrl. SHA-256 e fileSizeBytes são opcionais e não precisam ser preenchidos agora.
