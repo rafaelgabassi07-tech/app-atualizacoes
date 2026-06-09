@@ -1,19 +1,22 @@
 {
-  "latestVersionCode": 4,
-  "versionName": "1.0.3",
-  "downloadUrl": "https://github.com/rafaelgabassi07-tech/app-atualizacoes/releases/download/V1.0.3/VALORAE-4.apk",
-  "releaseDate": "2026-05-22",
+  "latestVersionCode": 49,
+  "versionName": "2.0.39",
+  "downloadUrl": "https://github.com/rafaelgabassi07-tech/app-atualizacoes/releases/download/v2.0.39/APK_VALORAE_v2.0.39.apk",
+  "releaseDate": "2026-06-09",
   "isMandatory": false,
-  "minRequiredVersionCode": 1,
-  "fileSize": "23.5 MB",
+  "minRequiredVersionCode": 48,
+  "fileSize": "PREENCHER_APOS_BUILD",
   "changelog": [
-    "Aprimoramento visual das páginas e ajustes de espaçamento",
-    "Melhorias no sistema de atualização",
-    "Otimizações gerais e correções de desempenho",
-    "Melhorias na lógica dos gráficos e na busca de dados por scraping",
-    "Implementação do sistema de notificações",
-    "Adição de ticker de mercado em todas as páginas",
-    "Melhorias na lista e no histórico de Meus Ativos",
-    "Nova lógica na função 'arrastar para ver o histórico' do gráfico de variação de preço"
-  ]
+    "Corrigido endpoint oficial de atualização para o Vercel: https://app-atualizacoes.vercel.app/update.json.",
+    "Centralizada a URL do manifesto em BuildConfig.VALORAE_UPDATE_MANIFEST_URL.",
+    "Mantido o download seguro do APK no cache do app com FileProvider.",
+    "Mantido suporte aos contratos legacy e snake_case de update.json/version.json.",
+    "Preparado para publicar o APK final no GitHub Releases e preencher a URL real no Vercel."
+  ],
+  "versionCode": 49,
+  "apkUrl": "https://github.com/rafaelgabassi07-tech/app-atualizacoes/releases/download/v2.0.39/APK_VALORAE_v2.0.39.apk",
+  "releaseNotes": "Ajuste do sistema de atualização para consultar o manifesto oficial no Vercel e baixar o APK apontado pelo GitHub Releases.",
+  "latest_version": "2.0.39",
+  "version_code": 49,
+  "apk_url": "https://github.com/rafaelgabassi07-tech/app-atualizacoes/releases/download/v2.0.39/APK_VALORAE_v2.0.39.apk"
 }
