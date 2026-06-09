@@ -2,18 +2,14 @@
   "latest_version": "2.0.40",
   "version_code": 50,
   "apk_url": "https://github.com/rafaelgabassi07-tech/app-atualizacoes/releases/download/v2.0.40/APK_VALORAE_v2.0.40.apk",
-  "release_date": "2026-06-08",
-  "release_notes": "Evolução do atualizador para instalador nativo Android e correção profunda da atualização da página Insights com ativos na carteira.",
-  "file_size": "PREENCHER_APOS_BUILD",
-  "file_size_bytes": 0,
-  "sha_256": "",
+  "release_date": "2026-06-09",
   "mandatory": false,
   "min_required_version_code": 49,
+  "file_size": "45 MB",
   "changelog": [
-    "Instalador nativo com PackageInstaller.Session para reduzir a sensação de instalação externa.",
-    "Validação local do APK antes de abrir a instalação: pacote, versionCode, formato e SHA-256 quando informado.",
-    "Fallback seguro para FileProvider caso a sessão nativa não esteja disponível no dispositivo.",
-    "Manifesto de atualização preparado para Vercel com campos legacy e snake_case.",
-    "Insights passam a recalcular imediatamente a carteira local ao abrir a aba e ao detectar mudanças nos ativos."
+    "Instalador nativo com aparência mais profissional usando PackageInstaller.Session.",
+    "Fallback seguro para FileProvider caso o instalador nativo não esteja disponível.",
+    "Correção na atualização da página Insights quando há ativos na carteira.",
+    "Manifesto simplificado para atualização manual via Vercel + GitHub."
   ]
 }
