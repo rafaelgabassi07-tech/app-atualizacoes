@@ -1,9 +1,9 @@
 {
-  "latestVersionCode": 50,
-  "versionName": "2.0.40",
-  "downloadUrl": "https://github.com/rafaelgabassi07-tech/app-atualizacoes/releases/download/v2.0.40/APK_VALORAE_v2.0.40.apk",
-  "releaseDate": "2026-06-09",
+  "latestVersionCode": 26061301,
+  "versionName": "2026.06.13",
+  "downloadUrl": "https://github.com/rafaelgabassi07-tech/app-atualizacoes/releases/download/v2026.06.13/APK_VALORAE_2026.06.13.apk",
+  "releaseDate": "2026-06-13",
   "isMandatory": false,
-  "minRequiredVersionCode": 49,
+  "minRequiredVersionCode": 52,
   "fileSize": "45 MB"
 }
