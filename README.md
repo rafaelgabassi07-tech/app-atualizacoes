@@ -1,22 +1,40 @@
-# VALORAE Atualizações
+# VALORAE - Atualizações do APK
 
-Pacote limpo para Vercel.
+Pacote limpo e compatível com o APK VALORAE.
 
-Endpoint usado pelo APK:
+## Regra importante
 
-```txt
-/api/update
+O `update.json` NÃO carrega changelog. O changelog oficial fica direto no APK em:
+
+```text
+app/src/main/assets/valorae_changelog.json
 ```
 
-Estrutura correta para Vercel:
+## Endpoint usado pelo APK
 
-```txt
+```text
+https://app-atualizacoes.vercel.app/api/update
+```
+
+## Arquivos mantidos
+
+```text
 api/update.js
 update.json
-index.html
 vercel.json
 package.json
 README.md
 ```
 
-Não use pasta `API` maiúscula. O endpoint esperado pelo APK é `/api/update`.
+## Versão anunciada
+
+```text
+latestVersionCode: 26061311
+versionName: 2026.06.13.1
+minRequiredVersionCode: 26061310
+```
+
+## Atenção ao downloadUrl
+
+O campo `downloadUrl` precisa ser exatamente o link público do APK anexado em GitHub Releases.
+Se o link abrir 404 fora do login do GitHub, o APK também vai falhar ao baixar.
