@@ -23,7 +23,6 @@ Campos obrigatórios no Vercel:
 Campos opcionais:
 - `releaseDate`
 - `fileSize`
-- `changelog`
 - `isMandatory`
 - `minRequiredVersionCode`
 
@@ -33,4 +32,4 @@ Campos removidos da rotina manual:
 - `fileSizeBytes`
 - `file_size_bytes`
 
-O app continua aceitando esses campos se forem adicionados no futuro, mas eles não são necessários para publicar atualizações agora.
+O app utiliza somente os campos técnicos do manifest. O histórico textual de alterações deve ser mantido fora deste JSON.
