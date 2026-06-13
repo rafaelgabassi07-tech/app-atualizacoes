@@ -1,9 +1,9 @@
 {
-  "latestVersionCode": 26061311,
+  "latestVersionCode": 26061310,
   "versionName": "2026.06.13",
-  "downloadUrl": "https://github.com/rafaelgabassi07-tech/app-atualizacoes/releases/download/V2026.06.13/Valorae-2026.06.13.apk",
+  "downloadUrl": "https://github.com/rafaelgabassi07-tech/app-atualizacoes/releases/download/v2026.06.13/APK_VALORAE_2026.06.13.apk",
   "releaseDate": "2026-06-13",
   "isMandatory": false,
-  "minRequiredVersionCode": 52,
+  "minRequiredVersionCode": 26061310,
   "fileSize": "21 MB"
 }

@@ -1,0 +1,9 @@
+{
+  "name": "valorae-app-atualizacoes",
+  "version": "2026.06.13",
+  "private": true,
+  "description": "Endpoint limpo de atualizacao do APK VALORAE para Vercel.",
+  "scripts": {
+    "check": "node -e \"const fs=require('fs'); const m=JSON.parse(fs.readFileSync('update.json','utf8')); if(!m.latestVersionCode || !m.versionName || !m.downloadUrl) throw new Error('update.json incompleto'); require('./api/update.js'); console.log('OK - endpoint /api/update e update.json validos')\""
+  }
+}
