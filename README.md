@@ -1,58 +1,44 @@
-# VALORAE - Atualizacoes do APK
+# VALORAE Atualizações - pacote corrigido
 
-Pacote ultra limpo e compativel com o APK VALORAE atual.
+Este pacote deve ficar na RAIZ do repositório/projeto Vercel.
+
+Arquivos necessários:
+
+- `api/update.js` - endpoint consultado pelo APK.
+- `update.json` - manifesto oficial da versão disponível.
+- `index.html` - página simples para a raiz do domínio não retornar 404.
+- `vercel.json` - headers sem cache.
+- `package.json` - validação local.
 
 ## Endpoint usado pelo APK
-
-O APK consulta:
 
 ```text
 https://app-atualizacoes.vercel.app/api/update
 ```
 
-O endpoint `/api/update` le somente:
+## Regra de atualização
+
+O APK só mostra atualização quando:
 
 ```text
-update.json
+latestVersionCode > versionCode instalado
 ```
 
-## Versao atual configurada
+APK atual inspecionado:
 
 ```text
-versionCode: 26061310
-versionName: 2026.06.13
-releaseDate: 2026-06-13
+versionCode = 26061310
+versionName = 2026.06.13
 ```
 
-Como `latestVersionCode` esta igual ao `versionCode` do APK atual, o app nao deve mostrar atualizacao nova para quem ja esta nessa versao.
-
-## Arquivos mantidos
+Este pacote anuncia:
 
 ```text
-api/update.js   endpoint principal usado pelo APK atual
-update.json     unico manifesto oficial
-vercel.json     headers sem cache
-package.json    validacao simples
-README.md       instrucoes
+latestVersionCode = 26061311
+versionName = 2026.06.13.1
 ```
 
-## Arquivos removidos de proposito
+## Atenção obrigatória
 
-```text
-api/version.js
-version.json
-docs/
-API/
-relatorios antigos
-manifests antigos divergentes
-```
-
-## Como publicar uma nova versao no futuro
-
-Quando gerar um APK novo, altere apenas:
-
-```text
-update.json
-```
-
-O campo `latestVersionCode` precisa ser maior que o `versionCode` do APK instalado anteriormente.
+Antes de publicar, confirme que `downloadUrl` aponta para um APK real e público no GitHub Releases.
+O APK baixado precisa ter `versionCode = 26061311` ou maior. Se o arquivo baixado tiver `versionCode = 26061310`, o Android pode recusar a instalação por ser a mesma versão.

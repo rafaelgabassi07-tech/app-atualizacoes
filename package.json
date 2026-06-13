@@ -1,6 +1,6 @@
 {
   "name": "valorae-app-atualizacoes",
-  "version": "2026.06.13",
+  "version": "2026.06.13.1",
   "private": true,
   "description": "Endpoint limpo de atualizacao do APK VALORAE para Vercel.",
   "scripts": {
