@@ -5,11 +5,5 @@
   "release_date": "2026-06-09",
   "mandatory": false,
   "min_required_version_code": 49,
-  "file_size": "45 MB",
-  "changelog": [
-    "Instalador nativo com aparência mais profissional usando PackageInstaller.Session.",
-    "Fallback seguro para FileProvider caso o instalador nativo não esteja disponível.",
-    "Correção na atualização da página Insights quando há ativos na carteira.",
-    "Manifesto simplificado para atualização manual via Vercel + GitHub."
-  ]
+  "file_size": "45 MB"
 }
