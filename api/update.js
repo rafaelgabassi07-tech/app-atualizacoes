@@ -1,17 +1,17 @@
 const manifest = require('../update.json');
 
-function setJsonHeaders(res) {
+function setHeaders(res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Cache-Control, X-Valorae-Client, X-Valorae-Version-Code');
-  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0');
   res.setHeader('Pragma', 'no-cache');
   res.setHeader('Expires', '0');
   res.setHeader('Content-Type', 'application/json; charset=utf-8');
 }
 
 module.exports = function handler(req, res) {
-  setJsonHeaders(res);
+  setHeaders(res);
 
   if (req.method === 'OPTIONS') {
     return res.status(204).end();
@@ -25,19 +25,19 @@ module.exports = function handler(req, res) {
     ok: true,
     source: '/api/update',
     generatedAt: new Date().toISOString(),
-    latestVersionCode: manifest.latestVersionCode,
+    latestVersionCode: Number(manifest.latestVersionCode),
     versionName: manifest.versionName,
     downloadUrl: manifest.downloadUrl,
     releaseDate: manifest.releaseDate,
     isMandatory: Boolean(manifest.isMandatory),
-    minRequiredVersionCode: manifest.minRequiredVersionCode,
+    minRequiredVersionCode: Number(manifest.minRequiredVersionCode),
     fileSize: manifest.fileSize,
     latest_version: manifest.versionName,
-    version_code: manifest.latestVersionCode,
+    version_code: Number(manifest.latestVersionCode),
     apk_url: manifest.downloadUrl,
     release_date: manifest.releaseDate,
     mandatory: Boolean(manifest.isMandatory),
-    min_required_version_code: manifest.minRequiredVersionCode,
+    min_required_version_code: Number(manifest.minRequiredVersionCode),
     file_size: manifest.fileSize
   });
 };
