@@ -25,8 +25,6 @@ module.exports = function handler(req, res) {
     ok: true,
     source: '/api/update',
     generatedAt: new Date().toISOString(),
-
-    // Contrato principal usado pelo APK atual.
     latestVersionCode: manifest.latestVersionCode,
     versionName: manifest.versionName,
     downloadUrl: manifest.downloadUrl,
@@ -34,8 +32,6 @@ module.exports = function handler(req, res) {
     isMandatory: Boolean(manifest.isMandatory),
     minRequiredVersionCode: manifest.minRequiredVersionCode,
     fileSize: manifest.fileSize,
-
-    // Compatibilidade no mesmo endpoint, sem segundo arquivo JSON.
     latest_version: manifest.versionName,
     version_code: manifest.latestVersionCode,
     apk_url: manifest.downloadUrl,
