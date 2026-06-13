@@ -19,6 +19,12 @@ module.exports = function handler(req, res) {
     ok: true,
     source: 'app-atualizacoes.vercel.app/api/update',
     generatedAt: new Date().toISOString(),
-    ...update
+    latestVersionCode: update.latestVersionCode,
+    versionName: update.versionName,
+    downloadUrl: update.downloadUrl,
+    releaseDate: update.releaseDate,
+    isMandatory: Boolean(update.isMandatory),
+    minRequiredVersionCode: update.minRequiredVersionCode,
+    fileSize: update.fileSize
   });
 };
